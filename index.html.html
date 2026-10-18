@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Parizoda, tug‘ilgan kuning muborak!</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg1:#fff1f6;--bg2:#f6d3e6;--blob1:#ff9ec7;--blob2:#c9a8ff;--ink:#4a1d3a;--soft:#7a4a68;--glass:#ffffffb8;--line:#ffffff;--rose:#d6336c;--gold:#b7791f;--gold2:#e0a82e;--ok:#1f9d63;--shadow:#b0478a33;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg1:#1b0a2e;--bg2:#3b0f4f;--blob1:#b0156e;--blob2:#4b2bb5;--ink:#fff0f7;--soft:#e8c7dc;--glass:#ffffff14;--line:#ffffff2e;--rose:#ff7eb6;--gold:#f2c879;--gold2:#ffe0a1;--ok:#5be3a0;--shadow:#00000066}}
+:root[data-theme="dark"]{--bg1:#1b0a2e;--bg2:#3b0f4f;--blob1:#b0156e;--blob2:#4b2bb5;--ink:#fff0f7;--soft:#e8c7dc;--glass:#ffffff14;--line:#ffffff2e;--rose:#ff7eb6;--gold:#f2c879;--gold2:#ffe0a1;--ok:#5be3a0;--shadow:#00000066}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;min-height:100vh;min-height:100dvh;font-family:"Manrope","Segoe UI",Arial,sans-serif;color:var(--ink);background:linear-gradient(160deg,var(--bg1),var(--bg2));background-color:var(--bg1);display:flex;align-items:center;justify-content:center;padding:20px 14px;overflow-x:hidden}
+.bg{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55;animation:drift 18s ease-in-out infinite alternate}
+.b1{width:60vmax;height:60vmax;left:-20vmax;top:-20vmax;background:var(--blob1)}
+.b2{width:55vmax;height:55vmax;right:-18vmax;bottom:-18vmax;background:var(--blob2);animation-delay:-6s}
+@keyframes drift{to{transform:translate(6vmax,5vmax) scale(1.12)}}
+.dust{position:absolute;bottom:-20px;border-radius:50%;background:radial-gradient(circle,var(--gold2),transparent 70%);animation:rise linear infinite}
+@keyframes rise{to{transform:translateY(-115vh)}}
+#mu{position:fixed;z-index:10;right:14px;top:calc(env(safe-area-inset-top,0px) + 12px);width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--glass);color:var(--ink);font-size:18px;cursor:pointer;padding:0;margin:0;display:none;align-items:center;justify-content:center}
+.stage{position:relative;z-index:1;width:100%;max-width:560px}
+.screen{animation:fade .7s ease both}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.card{background:var(--glass);border:1px solid var(--line);border-radius:30px;padding:34px 24px;text-align:center;box-shadow:0 30px 80px var(--shadow)}
+.kicker{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);font-weight:800;margin:0 0 14px}
+.script{font-family:"Great Vibes","Brush Script MT",cursive;font-weight:400;color:var(--rose);line-height:1.05;margin:0}
+h1,h2{font-family:"Playfair Display",Georgia,serif;margin:0}
+.name{font-size:clamp(64px,19vw,104px);background:linear-gradient(100deg,var(--rose),var(--gold2) 55%,var(--rose));-webkit-background-clip:text;background-clip:text;color:transparent;padding:4px 10px}
+.lead{font-family:"Playfair Display",Georgia,serif;font-style:italic;font-size:19px;color:var(--soft);line-height:1.6;margin:14px 0 8px}
+.hint{font-size:14px;color:var(--soft);margin:6px 0 22px}
+.rule{width:80px;height:2px;margin:18px auto;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.btn{font:inherit;font-weight:800;font-size:16px;letter-spacing:.04em;color:#fff;border:0;border-radius:999px;padding:16px 28px;cursor:pointer;background:linear-gradient(100deg,var(--rose),#a855f7);box-shadow:0 14px 30px #d6336c55;transition:transform .2s,box-shadow .2s;width:100%}
+.btn:hover{transform:translateY(-2px);box-shadow:0 18px 36px #d6336c77}
+.dots{display:flex;gap:4px;justify-content:center;margin-bottom:22px}
+.dots i{flex:1;max-width:30px;height:4px;border-radius:4px;background:var(--line);transition:background .4s}
+.dots i.on{background:linear-gradient(90deg,var(--rose),var(--gold2))}
+.q{font-size:clamp(22px,6vw,28px);line-height:1.3;margin:6px 0 24px;font-weight:700}
+.opt{display:flex;align-items:center;gap:12px;text-align:left;font:inherit;font-weight:600;font-size:16px;color:var(--ink);background:var(--glass);border:1px solid var(--line);border-radius:18px;padding:14px 16px;margin:0 0 12px;width:100%;cursor:pointer;transition:transform .2s,background .3s,border-color .3s}
+.opt:hover{border-color:var(--rose)}
+.opt b{flex:none;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--gold);border:1px solid var(--gold)}
+.opt.win{background:linear-gradient(100deg,#e11d74,#9333ea);color:#fff;border-color:transparent;transform:scale(1.02)}
+.opt.win b{color:#fff;border-color:#fff}
+.fb{min-height:46px;font-family:"Playfair Display",Georgia,serif;font-style:italic;font-size:17px;color:var(--rose);margin-top:6px}
+.cakeWrap{position:relative;text-align:center}
+.cakeWrap:before{content:"";position:absolute;left:50%;top:48%;width:92%;aspect-ratio:1;transform:translate(-50%,-50%);background:radial-gradient(circle,#ffd27a66,transparent 62%);filter:blur(10px);animation:glow 3s ease-in-out infinite alternate}
+@keyframes glow{to{opacity:.55}}
+svg.cake{position:relative;width:100%;max-width:540px;height:auto;filter:drop-shadow(0 20px 28px #00000040)}
+.fl{transform-box:fill-box;transform-origin:50% 100%;animation:flick .35s ease-in-out infinite alternate}
+@keyframes flick{from{transform:scale(1,1) rotate(-3deg)}to{transform:scale(1.12,.92) rotate(3deg)}}
+.flame{transition:opacity .5s}
+.off .flame{opacity:0}
+.hide{display:none}
+.poem{margin-top:20px;padding:30px 22px}
+.poem h2{font-size:clamp(26px,7vw,34px);color:var(--rose);margin-bottom:6px}
+.poem .st{font-family:"Playfair Display",Georgia,serif;font-style:italic;font-size:18px;line-height:1.75;color:var(--ink);margin:18px 0;opacity:0;animation:fade 1.2s ease forwards}
+.sign{font-family:"Great Vibes","Brush Script MT",cursive;font-size:34px;color:var(--gold);margin:16px 0 6px;opacity:0;animation:fade 1.2s ease forwards}
+canvas{position:fixed;inset:0;pointer-events:none;z-index:9}
+.ghost{background:transparent;border:1px solid var(--line);color:var(--ink);box-shadow:none;margin-top:14px}
+</style>
+</head>
+<body>
+<div class="bg"><div class="blob b1"></div><div class="blob b2"></div><div id="dust"></div></div>
+<button id="mu" aria-label="Musiqa">♪</button>
+<canvas id="cv"></canvas>
+<main class="stage" id="app"></main>
+<script>
+var Q=[
+{q:"20-oktyabr kuni dunyo uchun qanday kun?",o:["Parizoda dunyoga kelgan eng go‘zal kun ✨","Oddiy kuzgi kun","Hech kim bilmaydigan kun"],ok:0,y:"To‘g‘ri! Bu kun faqat sening kuning 💖"},
+{q:"Tug‘ilgan kuningda nechanchi bahoring to‘ladi? (2012-yilda tug‘ilgansan)",o:["12","13","14","15"],ok:2,y:"Barakalla! O‘n to‘rt bahor, o‘n to‘rt ezgu orzu 🌸"},
+{q:"“Parizoda” ismi nimani anglatadi?",o:["Pari avlodi, pari kabi go‘zal qiz","Tez yuguruvchi qiz","Katta shirin tort"],ok:0,y:"Aynan! Ismingdek nozik va go‘zalsan 🧚‍♀️"},
+{q:"Eng qimmatli sovg‘a qaysi?",o:["Kitob 📚","Sayohat ✈️","Shirinliklar 🍫","Hammasi birdan, sevgi bilan 🎁"],ok:3,y:"Bugun sen malikasan, hammasiga loyiqsan 👑"},
+{q:"Tug‘ilgan kuning qaysi oyga to‘g‘ri keladi?",o:["Sentyabr","Oktyabr 🍂","Noyabr"],ok:1,y:"Oltin kuz oyi, xuddi sen kabi go‘zal 🍂"},
+{q:"Sen qaysi yilda tug‘ilgansan?",o:["2010","2011","2012","2013"],ok:2,y:"To‘g‘ri, 2012-yil, eng sehrli yil ✨"},
+{q:"Tug‘ilgan kun tortiga nechta sham qo‘yiladi?",o:["10","12","14","20"],ok:2,y:"O‘n to‘rtta sham, o‘n to‘rtta orzu 🕯️"},
+{q:"Shamni o‘chirishdan oldin nima qilinadi?",o:["Uxlab qolinadi","Orzu qilinadi 🌠","Tort yeb bo‘linadi"],ok:1,y:"Ichingdagi orzuni yurakdan so‘ra 💫"},
+{q:"Qaysi so‘zlar senga eng mos?",o:["Xafa va jahldor","Mehribon va yorqin ☀️","Sovuq va tund"],ok:1,y:"Haqiqatan ham, qalbing nurga to‘la ☀️"},
+{q:"Pari qaysi kitoblarda uchraydi?",o:["Matematika kitobida","Telefon daftarida","Sehrli ertaklarda 🧚‍♀️"],ok:2,y:"Sen esa ertakdagi parining o‘zisan 🧚‍♀️"},
+{q:"Tug‘ilgan kunda eng ko‘p aytiladigan so‘z qaysi?",o:["Xayr","Ertaga ko‘rishamiz","Tabriklayman! 🎉"],ok:2,y:"Bugun hamma senga shuni aytadi 🎉"},
+{q:"Kuzning eng chiroyli rangi qaysi?",o:["Qop-qora","Oltin sariq 🍁","Kulrang"],ok:1,y:"Aynan, xuddi sening tug‘ilgan kuning kabi 🍁"},
+{q:"Eng yaxshi tilak qaysi?",o:["Hech narsa tilamayman","Faqat dars bo‘lsin 📓","Baxting baland, umring uzoq bo‘lsin 💐"],ok:2,y:"Shu tilak yuragimdan chiqdi 💐"},
+{q:"Yangi yoshda yuraging nimani so‘rayapti?",o:["Yangi do‘stlar 🤝","Katta yutuqlar 🏆","Sog‘lik va baxt 🌈","Dunyoni ko‘rish 🌍"],ok:2,y:"Bu orzu albatta ushaladi, chunki yuraging pok 🌠"}
+];
+var M=["Voy, bu javob qochib qoldi 🙈","Tutib bo‘lmaydi, u senga noto‘g‘ri 💔","Parizodaga faqat to‘g‘risi loyiq 🌹","Qo‘lga tushmaydi, boshqasini sinab ko‘r 💕","Bu javob yuragini yashirdi 😘"];
+var POEM=["Bugun osmon yulduzlarin sochdi senga,<br>Kuz ham oltin libosini kiydi senga,<br>O‘n to‘rt bahor nurli, sho‘x, beg‘ubor,<br>Yangi umid eshigini ochdi senga.",
+"Ismingda bor pariyning nozik sehri,<br>Kulgingda bor bahorning tiniq mehri,<br>Doim shunday porla, ey qalbi pok qiz,<br>Hayot sendan olsin go‘zallik bahri.",
+"Orzularing yulduzlardek porlab tursin,<br>Ko‘nglingda doim mehr, quvonch qolsin,<br>Bu dunyo sen uchun ochilgan bog‘,<br>Har kuning bayramdek go‘zal bo‘lsin."];
+var app=document.getElementById('app'),i=0;
+(function(){var d=document.getElementById('dust');for(var k=0;k<26;k++){var s=document.createElement('span');s.className='dust';var z=3+Math.random()*7;s.style.cssText='left:'+Math.random()*100+'%;width:'+z+'px;height:'+z+'px;animation-duration:'+(10+Math.random()*16)+'s;animation-delay:'+(-Math.random()*20)+'s;opacity:'+(.4+Math.random()*.6);d.appendChild(s)}})();
+function show(h){app.innerHTML='<section class="screen">'+h+'</section>'}
+function start(){i=0;show('<div class="card"><p class="kicker">20 · oktyabr · 2026</p><p class="lead" style="margin-top:0">Aziz va sevimli</p><h1 class="script name">Parizoda</h1><div class="rule"></div><p class="lead">Seni sehrli sinov va shirin syurpriz kutmoqda.</p><button class="btn" onclick="begin()">Boshlaymiz ♡</button></div>')}
+function begin(){initAudio();ask()}
+function ask(){var c=Q[i],h='<div class="card"><div class="dots">';
+for(var k=0;k<Q.length;k++)h+='<i class="'+(k<=i?'on':'')+'"></i>';
+h+='</div><p class="kicker">Savol '+(i+1)+' / '+Q.length+'</p><h2 class="q">'+c.q+'</h2>';
+c.o.forEach(function(t,k){h+='<button class="opt" onclick="pick('+k+')"><b>'+'ABCD'.charAt(k)+'</b><span>'+t+'</span></button>'});
+h+='<div class="fb" id="fb"></div></div>';show(h);
+app.querySelectorAll('.opt').forEach(function(b,k){if(k!==c.ok){['pointerenter','touchstart'].forEach(function(ev){b.addEventListener(ev,function(e){e.preventDefault();flee(b)})})}})}
+function flee(b){if(!b._s){var s=document.createElement('div');s.style.height=(b.offsetHeight+12)+'px';b.parentNode.insertBefore(s,b);b._s=1;b.style.width=b.offsetWidth+'px'}
+var w=b.offsetWidth,h=b.offsetHeight,vv=window.visualViewport,VW=vv?vv.width:document.documentElement.clientWidth,VH=vv?vv.height:document.documentElement.clientHeight,m=14,tp=70;
+b.style.position='fixed';b.style.zIndex=8;b.style.margin=0;b.style.transition='left .3s,top .3s';
+b.style.left=(m+Math.random()*Math.max(0,VW-w-2*m))+'px';b.style.top=(tp+Math.random()*Math.max(0,VH-h-tp-m-40))+'px';
+document.getElementById('fb').textContent=M[Math.floor(Math.random()*M.length)]}
+function pick(k){var c=Q[i];if(k!==c.ok){flee(app.querySelectorAll('.opt')[k]);return}
+app.querySelectorAll('.opt').forEach(function(x,j){x.onclick=null;if(j!==c.ok)x.style.display='none';else x.classList.add('win')});
+document.getElementById('fb').textContent=c.y;confetti(70);
+setTimeout(function(){i++;if(i<Q.length)ask();else cake()},1500)}
+function candle(x,base,n){var y=base-36,c=n%3===0?'url(#st2)':'url(#st1)';
+return '<rect x="'+(x-4)+'" y="'+y+'" width="8" height="36" rx="2" fill="'+c+'"/><g class="flame" style="transition-delay:'+(n*70)+'ms"><g transform="translate('+x+','+(y-3)+')"><path class="fl" d="M0 -20 C 8 -9 8 0 0 4 C -8 0 -8 -9 0 -20Z" fill="url(#fire)"/></g></g>'}
+function tier(x,y,w,h,g){var s='<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="18" fill="url(#'+g+')"/><rect x="'+x+'" y="'+y+'" width="'+w+'" height="22" rx="14" fill="#fff8fb"/>';
+for(var cx=x+14;cx<x+w-8;cx+=26)s+='<circle cx="'+cx+'" cy="'+(y+20)+'" r="11" fill="#fff8fb"/>';
+for(var px=x+22;px<x+w-14;px+=20)s+='<circle cx="'+px+'" cy="'+(y+h-14)+'" r="4.5" fill="url(#gold)"/>';return s}
+function cake(){var cs='',n=0,k;
+for(k=0;k<6;k++)cs+=candle(158+k*25,110,n++);
+for(k=0;k<4;k++)cs+=candle(96+k*12,190,n++);
+for(k=0;k<4;k++)cs+=candle(308+k*12,190,n++);
+var svg='<svg class="cake" id="ck" viewBox="0 0 440 400" xmlns="http://www.w3.org/2000/svg"><defs>'+
+'<linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff9ec7"/><stop offset="1" stop-color="#e84a8a"/></linearGradient>'+
+'<linearGradient id="g2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffc9e0"/><stop offset="1" stop-color="#ff8fba"/></linearGradient>'+
+'<linearGradient id="g3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe3ef"/><stop offset="1" stop-color="#ffb1d1"/></linearGradient>'+
+'<linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff0b8"/><stop offset="1" stop-color="#d89a1c"/></linearGradient>'+
+'<linearGradient id="pl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#d9c3d6"/></linearGradient>'+
+'<radialGradient id="fire" cx=".5" cy=".7" r=".6"><stop offset="0" stop-color="#fffbe0"/><stop offset=".5" stop-color="#ffd23f"/><stop offset="1" stop-color="#ff6a13"/></radialGradient>'+
+'<pattern id="st1" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#fff"/><rect width="4" height="8" fill="#e84a8a"/></pattern>'+
+'<pattern id="st2" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#fff"/><rect width="4" height="8" fill="#d89a1c"/></pattern></defs>'+
+'<ellipse cx="220" cy="376" rx="212" ry="20" fill="url(#pl)"/><ellipse cx="220" cy="370" rx="196" ry="14" fill="#fff" opacity=".7"/>'+
+tier(25,272,390,98,'g1')+tier(85,192,270,82,'g2')+tier(140,112,160,82,'g3')+
+'<text x="220" y="340" text-anchor="middle" font-family="Playfair Display,Georgia,serif" font-size="46" font-weight="700" fill="url(#gold)" stroke="#a8761a" stroke-width=".8">14</text>'+
+'<text x="220" y="254" text-anchor="middle" font-family="Great Vibes,cursive" font-size="40" fill="#b3235f">Parizoda</text>'+
+'<text x="220" y="170" text-anchor="middle" font-size="26" fill="#e11d74">♥</text>'+cs+'</svg>';
+show('<div class="card" style="padding-bottom:22px"><p class="kicker">Syurpriz</p><h2 class="q" style="margin-bottom:4px">O‘n to‘rt sham yonib turibdi</h2><p class="hint" style="margin-bottom:6px">Ichingda orzu qil va hammasini bir nafasda o‘chir 🕯️</p><div class="cakeWrap">'+svg+'</div><button class="btn" id="bl" onclick="blow()">Orzu qildim, o‘chiraman 💨</button></div><div id="ps"></div>')}
+function blow(){document.getElementById('ck').classList.add('off');document.getElementById('bl').classList.add('hide');
+var n=0,t=setInterval(function(){confetti(70);if(++n>7)clearInterval(t)},420);
+var h='<div class="card poem"><p class="kicker">Tug‘ilgan kuning muborak</p><h2 class="script name" style="font-size:clamp(54px,16vw,84px)">Parizoda</h2><div class="rule"></div>';
+POEM.forEach(function(p,k){h+='<p class="st" style="animation-delay:'+(1+k*2)+'s">'+p+'</p>'});
+h+='<p class="sign" style="animation-delay:7.2s">Hurmat bilan</p><button class="btn ghost" onclick="start()" style="animation:fade 1s 8s both">Qaytadan ♡</button></div>';
+var ps=document.getElementById('ps');ps.innerHTML=h;setTimeout(function(){ps.scrollIntoView({behavior:'smooth',block:'start'})},700)}
+var cv=document.getElementById('cv'),cx=cv.getContext('2d'),P=[],on=false;
+function rs(){cv.width=innerWidth;cv.height=innerHeight}rs();addEventListener('resize',rs);
+function confetti(n){var C=["#ff4da6","#a855f7","#ffd23f","#ffffff","#ff8fba","#e0a82e"];for(var k=0;k<n;k++)P.push({x:cv.width/2,y:cv.height*.55,vx:(Math.random()-.5)*16,vy:-Math.random()*15-3,s:5+Math.random()*7,c:C[k%6],r:Math.random()*6,l:130});if(!on){on=true;lp()}}
+function lp(){cx.clearRect(0,0,cv.width,cv.height);P=P.filter(function(p){return p.l>0});P.forEach(function(p){p.x+=p.vx;p.y+=p.vy;p.vy+=.28;p.vx*=.99;p.r+=.2;p.l--;cx.save();cx.translate(p.x,p.y);cx.rotate(p.r);cx.fillStyle=p.c;cx.fillRect(-p.s/2,-p.s/2,p.s,p.s*.55);cx.restore()});if(P.length)requestAnimationFrame(lp);else{on=false;cx.clearRect(0,0,cv.width,cv.height)}}
+/* musiqa */
+var AC,mg,mOn=true,N={G4:392,A4:440,B4:493.88,C5:523.25,D5:587.33,E5:659.25,F5:698.46,G5:783.99};
+var S=[['G4',.75],['G4',.25],['A4',1],['G4',1],['C5',1],['B4',2],['G4',.75],['G4',.25],['A4',1],['G4',1],['D5',1],['C5',2],['G4',.75],['G4',.25],['G5',1],['E5',1],['C5',1],['B4',1],['A4',2],['F5',.75],['F5',.25],['E5',1],['C5',1],['D5',1],['C5',2]];
+function note(f,t,d){[[f,'sine',.5],[f*2,'triangle',.12]].forEach(function(o){var os=AC.createOscillator(),g=AC.createGain();os.type=o[1];os.frequency.value=o[0];g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(o[2],t+.03);g.gain.exponentialRampToValueAtTime(.001,t+d+.25);os.connect(g);g.connect(mg);os.start(t);os.stop(t+d+.3)})}
+function loopM(){var t=AC.currentTime+.1,b=.6;S.forEach(function(n){note(N[n[0]],t,n[1]*b);t+=n[1]*b});setTimeout(loopM,(t-AC.currentTime+2.5)*1000)}
+function initAudio(){var mu=document.getElementById('mu');mu.style.display='flex';if(AC){if(AC.state==='suspended')AC.resume();return}
+try{AC=new(window.AudioContext||window.webkitAudioContext)();mg=AC.createGain();mg.gain.value=.3;mg.connect(AC.destination);loopM()}catch(e){}}
+document.getElementById('mu').onclick=function(){mOn=!mOn;this.textContent=mOn?'♪':'✕';if(AC)mg.gain.setTargetAtTime(mOn?.3:0,AC.currentTime,.05)};
+start();
+</script>
+</body>
+</html>
